@@ -3,6 +3,7 @@ package com.dreyer.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -20,21 +21,27 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT)
             toast.show()
 
-            val resultTextView: TextView = findViewById(R.id.textView)
-            resultTextView.text = "6"
-
-            rollDice()
+           rollDice()
         }
     }
 
+    //A method called rollDice
     private fun rollDice() {
         // Create new Dice object with 6 sides and roll it
         val dice = Dice(6)
         val diceRoll = dice.roll()
 
-        // Update the screen with the dice roll
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+        // Update the screen with the dice image
+        val diceImage: ImageView = findViewById(R.id.imageView)
+
+        when (diceRoll) {
+            1 -> diceImage.setImageResource(R.drawable.dice_1)
+            2 -> diceImage.setImageResource(R.drawable.dice_2)
+            3 -> diceImage.setImageResource(R.drawable.dice_3)
+            4 -> diceImage.setImageResource(R.drawable.dice_4)
+            5 -> diceImage.setImageResource(R.drawable.dice_5)
+            6 -> diceImage.setImageResource(R.drawable.dice_6)
+        }
     }
 }
 
