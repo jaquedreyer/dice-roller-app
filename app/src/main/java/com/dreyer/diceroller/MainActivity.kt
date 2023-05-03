@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity() {
 
             rollDice()
         }
+
+        //Add a diceimage when starts the app to enhance user experience
+        rollDice()
     }
 
     //A method called rollDice
@@ -31,9 +34,10 @@ class MainActivity : AppCompatActivity() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
 
-        // Update the screen with the dice image
+        //Find the ImageView in the layout
         val diceImage: ImageView = findViewById(R.id.imageView)
 
+        //Update the screen with the dice image according to the result
         val drawableResource = when (diceRoll) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
@@ -43,6 +47,9 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
         diceImage.setImageResource(drawableResource)
+
+        //Update the content description
+        diceImage.contentDescription = diceRoll.toString()
     }
 }
 
