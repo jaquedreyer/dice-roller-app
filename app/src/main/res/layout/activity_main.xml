@@ -25,6 +25,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/dice_1"
-        android:contentDescription="@string/dice_image" />
+        android:contentDescription="@string/dice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
